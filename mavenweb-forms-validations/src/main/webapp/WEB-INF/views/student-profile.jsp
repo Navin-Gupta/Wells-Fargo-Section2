@@ -7,6 +7,11 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Insert title here</title>
+		<style type="text/css">
+			.error{
+				color : red;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Provide you profile info</h1>
@@ -21,12 +26,24 @@
 		<spring:form action="save" method="post" modelAttribute="student">
 			<div>
 				<div><spring:label path="name">Enter name</spring:label></div>
-				<div><spring:input path="name"/></div>
+				<div>
+					<spring:input path="name"/>
+					<spring:errors path="name" cssClass="error"/>
+				</div>
 			</div>
 			</br></br>
 			<div>
 				<div><spring:label path="email">Enter Email</spring:label></div>
 				<div><spring:input path="email"/></div>
+			</div>
+			
+			</br></br>
+			<div>
+				<div><spring:label path="freePasses">Enter Free Passes</spring:label></div>
+				<div>
+					<spring:input path="freePasses"/>
+					<spring:errors path="freePasses" cssClass="error"/>
+				</div>
 			</div>
 			</br></br>
 			<div>

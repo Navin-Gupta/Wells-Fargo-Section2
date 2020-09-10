@@ -2,17 +2,34 @@ package com.wf.training.mavenweb.model;
 
 import java.util.LinkedHashMap;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 public class Student {
 	
+	@NotBlank(message = "Name is mandatory!")
+	// @NotNull(message = "Name is mandatory!")
 	private String name;
+	
 	private String email;
+	
 	private String country;
+	
 	private String favoriteLanguage;
+	
 	private String[] operatingSystems;
+	
+	// @NotBlank(message = "Free Passes are mandatory") // for string data
+	// @NotEmpty(message = "Free Passes are mandatory") // for string data
+	@NotNull(message = "Free Passes are mandatory")
+	@Min(value = 1, message = "At least 1 free pass is required!")
+	private Integer freePasses;
 	
 	private LinkedHashMap<String, String> countries;
 	
-	// populate th country list
+	// populate the country list
 	public Student() {
 		// dummy values (can be fetched using DAO)
 		this.countries = new LinkedHashMap<String, String>();
@@ -29,6 +46,18 @@ public class Student {
 	}
 
 	
+
+	public Integer getFreePasses() {
+		return freePasses;
+	}
+
+
+
+	public void setFreePasses(Integer freePasses) {
+		this.freePasses = freePasses;
+	}
+
+
 
 	public String getFavoriteLanguage() {
 		return favoriteLanguage;

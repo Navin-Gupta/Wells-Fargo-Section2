@@ -1,7 +1,10 @@
 package com.wf.training.mavenweb.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,12 +29,34 @@ public class StudentController {
 	}
 	
 	// @ModelAttribute will put the param data into model object
+	// @Valid : Checks the constraint
+	// Share with us the result
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveProfile(@ModelAttribute Student student) {
+	public String saveProfile(@Valid @ModelAttribute Student student, 
+							  BindingResult result) {
 		// pass the student object to view page to display
+		// check the result of constraint check
+		if(result.hasErrors()) {
+			return "student-profile";
+		}
+		
 		return "student-confirm";
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

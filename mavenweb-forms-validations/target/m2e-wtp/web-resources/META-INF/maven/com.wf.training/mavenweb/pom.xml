@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.wf.training</groupId>
-  <artifactId>mavenweb-forms</artifactId>
+  <artifactId>mavenweb</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>mavenweb Maven Webapp</name>
@@ -38,13 +38,6 @@
 	    <scope>provided</scope>
 	</dependency>
    
-   		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
-		<dependency>
-		    <groupId>jstl</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
-		</dependency>
-   
    
     <dependency>
       <groupId>junit</groupId>
@@ -56,7 +49,7 @@
   </dependencies>
   
   <build>
-    <finalName>mavenweb-forms</finalName>
+    <finalName>mavenweb</finalName>
     <pluginManagement>
     	<plugins>
     		<plugin>
