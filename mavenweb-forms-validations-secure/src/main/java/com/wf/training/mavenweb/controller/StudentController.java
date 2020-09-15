@@ -1,5 +1,7 @@
 package com.wf.training.mavenweb.controller;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
@@ -24,7 +26,8 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/profile")
-	public String profile(Model model) {
+	public String profile(Model model, Principal principal) {
+		System.out.println(principal.getName());
 		Student student = new Student();  // empty bag
 		// student.setName("Dummy");
 		model.addAttribute("student", student);

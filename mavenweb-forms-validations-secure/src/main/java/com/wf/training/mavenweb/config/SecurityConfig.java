@@ -28,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	// to define the rule of access
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+		/************ Without Role Authorization *******/
+		/*
 		http.authorizeRequests() // start defining the rule
 			.anyRequest()
 			.authenticated()
@@ -36,7 +38,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.formLogin() // form-based auth
 			.loginPage("/custom-login") // custom login form
 			.loginProcessingUrl("/validate") // implementation is provided free
-			.permitAll(); // allow to access login form
+			.permitAll() // allow to access login form
+		.and()
+			.logout(); //  have a provision for logout (free implementation of /logout url)
+		*/
+		/************ With Role Authorization *******/
+		
+		http.authorizeRequests() // start defining the rule
+			.antMatchers("/student/**").hasRole("STUDENT")
+			.antMatchers("/mentor/**").hasRole("MENTOR")
+		.and() // how auth should take place
+			// .httpBasic()
+			.formLogin() // form-based auth
+			.loginPage("/custom-login") // custom login form
+			.loginProcessingUrl("/validate") // implementation is provided free
+			.permitAll() // allow to access login form
+		.and()
+			.logout().permitAll() //  have a provision for logout (free implementation of /logout url)
+		.and()
+			.exceptionHandling()
+				.accessDeniedPage("/custom-error");
+		
 			
 	}
 	

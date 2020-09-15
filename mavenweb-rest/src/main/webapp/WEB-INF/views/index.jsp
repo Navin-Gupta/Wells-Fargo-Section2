@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome to Student Dashboard!</h1>
-<hr/>
-<a href="${pageContext.request.contextPath}/student/profile">Profile</a>
+<h1>Welcome All to Maven Tool</h1>
 </body>
 </html>

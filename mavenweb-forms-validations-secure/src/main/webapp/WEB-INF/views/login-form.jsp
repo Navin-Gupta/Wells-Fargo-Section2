@@ -15,7 +15,7 @@
 	<i>Invalid Credentials!!!</i>
 </core:if>
 <%-- textfield username/password --%>
-<spring:form action="validate" method="POST">
+<spring:form action="${pageContext.request.contextPath}/validate" method="POST">
 	<div>
 		<div><label>Enter login Id</label></div>
 		<div><input type="text" name="username"></div>
@@ -28,6 +28,8 @@
 	<br/>
 	<input type="submit" value="Login">
 </spring:form>
-
+<core:if test="${param.logout != null}">
+	<i>You have been logged out successfully!!!</i>
+</core:if>
 </body>
 </html>

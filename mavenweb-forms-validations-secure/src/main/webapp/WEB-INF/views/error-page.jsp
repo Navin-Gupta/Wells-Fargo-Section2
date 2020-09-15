@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Welcome to Student Dashboard!</h1>
-<hr/>
-<a href="${pageContext.request.contextPath}/student/profile">Profile</a>
+<h1>Un-Authorized!!!</h1>
+<a href="${pageContext.request.contextPath}/">HOME</a>
 </body>
 </html>
