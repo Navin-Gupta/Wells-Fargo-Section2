@@ -21,32 +21,37 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public List<Student> getAll() {
 		// TODO Auto-generated method stub
-		return null;
-		
+		return this.repository.findAll();
 	}
 
 	@Override
 	public Student getById(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.repository.findById(id).orElse(null);
 	}
 
 	@Override
 	public Student add(Student student) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.repository.save(student);
+		// this.repository.findByEmail(email)
+		// this.repository.findByComplexRequirement(20, "dummy@mail.com");
+		// this.repository.veryComplexBusinessLogicQuery("dummy@mail.com");
 	}
 
 	@Override
 	public Student update(Student student) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.repository.save(student); // save & update
 	}
 
 	@Override
 	public Student delete(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+		Student student = this.getById(id);
+		if(student != null)
+			this.repository.deleteById(id);
+		return student;
 	}
 
 }
